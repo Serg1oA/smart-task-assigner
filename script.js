@@ -11,7 +11,7 @@ async function populateTaskTypes() {
         taskTypes = JSON.parse(taskTypes);
     } else {
         // If data doesn't exist in localStorage, fetch it from the backend (a hardcoded example in app.py)
-        const response = await fetch('/api/task_types');
+        const response = await fetch('/task_types');
         taskTypes = await response.json();
         // After fetching task types, save it in localStorage
         localStorage.setItem('taskTypes', JSON.stringify(taskTypes));
@@ -213,7 +213,7 @@ async function populateTaskTypes() {
         taskTypes = JSON.parse(taskTypes);
     } else {
         // If data doesn't exist, fetch it from the backend
-        const response = await fetch('/api/task_types');
+        const response = await fetch('/task_types');
         taskTypes = await response.json();
         // After fetching task types, save it to local storage
         localStorage.setItem('taskTypes', JSON.stringify(taskTypes));
@@ -251,7 +251,7 @@ async function loadAndDisplayWorkers() {
         displayWorkers(workers);
     } else {
         // If data doesn't exist, fetch it from the backend
-        const response = await fetch('/api/workers');
+        const response = await fetch('/workers');
         const data = await response.json();
         workers = data;
         // After fetching workers, save it to local storage

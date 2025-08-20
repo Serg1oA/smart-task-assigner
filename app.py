@@ -1,7 +1,8 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
+import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='.') # Ensure static files are served
 CORS(app)
 
 # Define possible task types
@@ -97,6 +98,14 @@ def assign_task():
     task_data = request.get_json()
     task_type = task_data['task_type']
     # ... (rest of the assign_task function remains the same)
+
+@app.route('/')
+def index():
+    return send_from_directory('.', 'index.html')
+
+@app.route('/<path:path>')
+def serve_static(path):
+    return send_from_directory('.', path)
 
 if __name__ == '__main__':
     app.run(debug=True)
