@@ -1,0 +1,16 @@
+{
+  "name": "smart-task-assigner-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for the Smart Task Assigner",
+  "scripts": {
+    "build": "echo 'No build step required'",
+    "start": "http-server -p $PORT"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14"
+  }
+}

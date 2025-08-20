@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Task Assigner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Smart Task Assigner</h1>
+
+    <div class="container">
+        <div class="table-container">
+            <h2>Worker Info</h2>
+            <div id="result"></div>
+        </div>
+
+        <div class="form-recommendation-container">
+            <h2>Enter Task Info</h2>
+            <form id="taskInputForm">
+                <label for="taskType">Task Type:</label>
+                <select id="taskType" name="taskType"></select><br><br>
+
+                <label for="taskHours">Hours Required:</label>
+                <input type="number" id="taskHours" name="taskHours"><br><br>
+
+                <label for="taskDay">Deadline:</label>
+                <select id="taskDay" name="taskDay">
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                </select><br><br>
+
+                <p>(Today is <span id="todayDay"></span>)</p>
+
+                <button type="button" onclick="findBestWorker()">Find Best Worker</button>
+            </form>
+            <h2>Best Assignment</h2>
+            <div id="recommendation">The best worker for the task will appear here.</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
