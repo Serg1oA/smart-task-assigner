@@ -2,7 +2,8 @@ from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import os
 
-app = Flask(__name__, static_folder='.') # Ensure static files are served
+app = Flask(__name__) # Ensure static files are served
+
 CORS(app)
 
 # Define possible task types
@@ -85,15 +86,15 @@ workers = [
     }
 ]
 
-@app.route('/api/workers', methods=['GET'])
+@app.route('/workers', methods=['GET'])
 def get_workers():
     return jsonify(workers)
 
-@app.route('/api/task_types', methods=['GET'])
+@app.route('/task_types', methods=['GET'])
 def get_task_types():
     return jsonify(task_types)
 
-@app.route('/api/assign_task', methods=['POST'])
+@app.route('/assign_task', methods=['POST'])
 def assign_task():
     task_data = request.get_json()
     task_type = task_data['task_type']

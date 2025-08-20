@@ -29,6 +29,8 @@ async function populateTaskTypes() {
 
 // Function to find the best worker
 async function findBestWorker() {
+    // Get the worker data from localStorage
+        const response = await fetch('/workers');
     const taskType = document.getElementById('taskType').value;
     const taskHours = parseInt(document.getElementById('taskHours').value);
     const deadline = document.getElementById('taskDay').value;
